@@ -43,3 +43,23 @@ discountAmount = driver.find_element_by_css_selector(".discountAmt").text
 
 assert float(discountAmount) < float(originalAmount)
 print(driver.find_element_by_css_selector("span.promoInfo").text)
+
+amounts = driver.find_elements_by_xpath("//tr/td[5]/p")
+sum = 0
+for amount in amounts:
+    sum = sum + int(amount.text)
+print(sum)
+
+totalAmount = int(driver.find_element_by_class_name("totAmt").text)
+
+assert sum == totalAmount
+
+
+
+
+
+
+
+
+
+
